@@ -38,7 +38,7 @@ KassadinMenu.Combo:Boolean("Q", "Use Q in combo", true)
 KassadinMenu.Combo:Boolean("W", "Use W in combo", true)
 KassadinMenu.Combo:Boolean("E", "Use E in combo", true)
 KassadinMenu.Combo:Boolean("R", "Use R in combo", true)
-KassadinMenu.Combo:Slider("RX", "X Enemies to Cast R",3,1,5,1)7:20 PM 5/14/2017
+KassadinMenu.Combo:Slider("RX", "X Enemies to Cast R",3,1,5,1)
 KassadinMenu.Combo:Boolean("Cutlass", "Use Cutlass", true)
 KassadinMenu.Combo:Boolean("Tiamat", "Use Tiamat", true)
 KassadinMenu.Combo:Boolean("BOTRK", "Use BOTRK", true)
