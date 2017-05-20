@@ -1,4 +1,4 @@
-local ver = "0.02"
+local ver = "0.03"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -134,7 +134,7 @@ OnTick(function (myHero)
 			 CastTargetSpell(target, Cutlass)
             end
 
-            if KassadinMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 700) then
+            if KassadinMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 600) then
 			  CastSkillShot(_E, target)
 	    end
 
