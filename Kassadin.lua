@@ -1,4 +1,4 @@
-local ver = "0.03"
+local ver = "0.04"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -55,6 +55,9 @@ KassadinMenu.AutoMode:Boolean("Q", "Auto Q", false)
 KassadinMenu.AutoMode:Boolean("W", "Auto W", false)
 KassadinMenu.AutoMode:Boolean("E", "Auto E", false)
 KassadinMenu.AutoMode:Boolean("R", "Auto R", false)
+
+KassadinMenu:SubMenu("AutoFarm", "AutoFarm")
+KassadinMenu.AutoFarm:Boolean("Q", "Auto Q", false)
 
 KassadinMenu:SubMenu("LaneClear", "LaneClear")
 KassadinMenu.LaneClear:Boolean("Q", "Use Q", true)
@@ -225,7 +228,7 @@ OnTick(function (myHero)
 	        end
 
                 if KassadinMenu.LaneClear.E:Value() and Ready(_E) and ValidTarget(closeminion, 700) then
-	        	 CastSkillShot(_E, target)
+	        	 CastSkillShot(_E, closeminion)
 	        end
 
                 if KassadinMenu.LaneClear.R:Value() and Ready(_R) and ValidTarget(closeminion, 500) then
@@ -241,6 +244,15 @@ OnTick(function (myHero)
       	        end
           end
       end
+		
+		 --Auto on minions
+          for _, minion in pairs(minionManager.objects) do
+      			
+      	       if KassadinMenu.AutoFarm.Q:Value() and Ready(_Q) and ValidTarget(minion, 650) and GetCurrentHP(minion) < CalcDamage(myHero,minion,QDmg,Q) then
+                  CastTargetSpell(minion, _Q)
+              end
+	end		
+		
         --AutoMode
         if KassadinMenu.AutoMode.Q:Value() then        
           if Ready(_Q) and ValidTarget(target, 650) then
